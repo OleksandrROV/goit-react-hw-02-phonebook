@@ -1,16 +1,27 @@
-export const App = () => {
-  return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
-  );
-};
+import { Component } from 'react';
+import { nanoid } from 'nanoid';
+
+import ContactForm from './form/form';
+class App extends Component {
+  state = {
+    contacts: [],
+    name: '',
+  };
+
+  addContact = name => {
+    const contact = {
+      id: nanoid(),
+      name: name,
+    };
+    this.setState(({ contacts }) => ({ contacts: [contact, ...contacts] }));
+  };
+
+  render() {
+    return (
+      <>
+        <ContactForm functionAdd={this.addContact} />
+      </>
+    );
+  }
+}
+export default App;
