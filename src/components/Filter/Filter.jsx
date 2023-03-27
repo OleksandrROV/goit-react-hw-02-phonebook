@@ -1,9 +1,14 @@
 import React from 'react';
 
 const Filter = ({ value, onChange }) => (
-  <label htmlFor="">
+  <label style={{ fontSize: '22px' }} htmlFor="">
     Find contacts by name
-    <input type="text" value={value} onChange={onChange} />
+    <input
+      style={{ marginLeft: '10px' }}
+      type="text"
+      value={value}
+      onChange={onChange}
+    />
   </label>
 );
 
